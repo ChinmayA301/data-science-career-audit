@@ -11,3 +11,6 @@ __pycache__/
 
 # Env
 .env
+
+# Large raw datasets (downloaded on demand; see src/fetch_data.py)
+data/raw/
