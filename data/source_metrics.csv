@@ -1,0 +1,14 @@
+metric,year,value,unit,source,notes
+bls_data_scientist_jobs,2024,245900,jobs,BLS OOH Data Scientists,US employment level for data scientists in 2024
+bls_data_scientist_projected_growth,2024,34,percent,BLS OOH Data Scientists,Projected employment growth 2024-2034
+bls_data_scientist_median_pay,2024,112590,usd_per_year,BLS OOH Data Scientists,Median annual wage May 2024
+bls_all_occupations_projected_growth,2024,3.1,percent,BLS MLR Employment Projections Overview,Projected total employment growth 2024-2034
+stanford_ai_business_usage,2023,55,percent,Stanford HAI AI Index 2025,Organizations reporting AI use in 2023
+stanford_ai_business_usage,2024,78,percent,Stanford HAI AI Index 2025,Organizations reporting AI use in 2024
+stanford_genai_private_investment,2024,33.9,billion_usd,Stanford HAI AI Index 2025,Global private investment in generative AI in 2024
+stanford_us_private_ai_investment,2024,109.1,billion_usd,Stanford HAI AI Index 2025,US private AI investment in 2024
+mckinsey_review_all_genai_outputs,2025,27,percent,McKinsey State of AI 2025,Organizations using gen AI where employees review all AI-created content before use
+mckinsey_review_20_or_less_genai_outputs,2025,27,percent,McKinsey State of AI 2025,Approximate similar share reviewing 20 percent or less of AI-created content before use
+wef_ai_info_processing_transform_business,2030,86,percent,WEF Future of Jobs 2025,Survey respondents expecting AI and information processing tech to transform their business by 2030
+wef_jobs_created_by_2030,2030,170,million_jobs,WEF Future of Jobs 2025,Projected jobs created globally by 2030
+wef_jobs_displaced_by_2030,2030,92,million_jobs,WEF Future of Jobs 2025,Projected jobs displaced globally by 2030
