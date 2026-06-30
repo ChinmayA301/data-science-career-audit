@@ -61,6 +61,7 @@ def main():
     wef_transform = get_value(df, "wef_ai_info_processing_transform_business", 2030)
     jobs_created = get_value(df, "wef_jobs_created_by_2030", 2030)
     jobs_displaced = get_value(df, "wef_jobs_displaced_by_2030", 2030)
+    early_career_emp_change = get_value(df, "stanford_early_career_ai_exposed_emp_change", 2025)
 
     projected_jobs_2034 = jobs_2024 * (1 + ds_growth / 100)
     projected_added_jobs = projected_jobs_2034 - jobs_2024
@@ -83,6 +84,7 @@ def main():
         ["GenAI orgs reviewing <=20% outputs", review_low, "percent"],
         ["WEF respondents expecting AI/info tech business transformation", wef_transform, "percent"],
         ["WEF projected net global job change by 2030", net_global_jobs_wef, "million jobs"],
+        ["Early-career (22-25) employment change in most AI-exposed jobs (Stanford DEL)", early_career_emp_change, "percent (relative)"],
     ], columns=["result", "value", "unit"])
 
     summary.to_csv(OUT / "summary_results.csv", index=False)
@@ -97,7 +99,11 @@ def main():
         "The numbers support a contradiction: data science remains a high-growth labor category, "
         "but the same AI adoption wave that increases demand for analytics also automates parts of "
         "the traditional analytics workflow. The safer career claim is not 'data science is dead'; "
-        "it is 'generic tool-based data science is getting compressed.'"
+        "it is 'generic tool-based data science is getting compressed.' The pressure is not evenly "
+        "distributed: external payroll research (Stanford Digital Economy Lab, 'Canaries in the Coal "
+        "Mine,' 2025) finds early-career workers (ages 22-25) in the most AI-exposed occupations down "
+        "about 13% in relative employment, while their more experienced peers stay flat or grow. The "
+        "entry rung is the most exposed part of the bundle."
     )
     (OUT / "summary_results.md").write_text("\n".join(markdown_lines), encoding="utf-8")
 

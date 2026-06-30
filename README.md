@@ -38,7 +38,7 @@ python src/job_posting_nlp.py
 ### Layer 2 outputs (`outputs/`)
 - `nlp_summary.md` — all numbers, methods, and caveats in one place
 - `title_mix_2023.csv`, `skill_frequency_2023.csv`, `skill_by_archetype_2023.csv`
-- `skill_cooccurrence_2023.csv`, `skill_frequency_2026.csv`
+- `skill_cooccurrence_2023.csv`, `skill_frequency_2026.csv`, `seniority_skill_split_2023.csv`
 - `genai_keyword_monthly_2023.csv` + `genai_keyword_monthly_2023.png`
 - `genai_2023_vs_2026.png`
 
@@ -73,6 +73,7 @@ statistically robust result is the *within-2023* monthly trend.
 | GenAI orgs reviewing <=20% outputs | 27 | percent |
 | WEF respondents expecting AI/info tech business transformation | 86 | percent |
 | WEF projected net global job change by 2030 | 78 | million jobs |
+| Early-career (22-25) employment change in most AI-exposed jobs (Stanford DEL) | -13 | percent (relative) |
 
 ### Job-posting findings (real text, descriptive)
 
@@ -88,6 +89,13 @@ statistically robust result is the *within-2023* monthly trend.
   postings (controlled skill lists) and already roughly doubled within 2023
   (Jan–Jun 0.10% → Jul–Dec 0.17%). In the ~June 2026 snapshot it appears in
   **~27%** of data-role postings (free text, n≈900 — directional, see caveat).
+- **Entry-level exposure — an honest null.** Job postings can't show that the
+  automatable stack sits at the entry level: procedural-skill prevalence is
+  flat-to-*higher* in "Senior" postings and GenAI is ~0% across tiers in 2023.
+  The "entry-level is hit hardest" claim therefore rests on external payroll
+  research (Stanford Digital Economy Lab, *Canaries in the Coal Mine*, 2025:
+  ~13% relative employment decline for ages 22–25 in the most AI-exposed
+  occupations), not on this layer. See `outputs/seniority_skill_split_2023.csv`.
 
 Full numbers, methods, and caveats: [`outputs/nlp_summary.md`](outputs/nlp_summary.md).
 
@@ -98,6 +106,7 @@ Full numbers, methods, and caveats: [`outputs/nlp_summary.md`](outputs/nlp_summa
 - Stanford HAI AI Index 2025
 - McKinsey State of AI 2025
 - World Economic Forum Future of Jobs Report 2025
+- Stanford Digital Economy Lab — *Canaries in the Coal Mine* (2025), early-career AI employment effects
 - Job postings: `lukebarousse/data_jobs` (2023), `NextGig-Rocks/global-job-postings-multi-ats` (2026)
 
 ## Limitation

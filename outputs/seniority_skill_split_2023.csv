@@ -1,0 +1,7 @@
+role,tier,postings,procedural_skill_pct,genai_pct
+Data Analyst,non-senior,196075,69.6,0.006
+Data Analyst,senior,29216,75.4,0.007
+Data Scientist,non-senior,172286,55.1,0.305
+Data Scientist,senior,36957,58.0,0.655
+Data Engineer,non-senior,186241,65.7,0.017
+Data Engineer,senior,44563,68.3,0.025

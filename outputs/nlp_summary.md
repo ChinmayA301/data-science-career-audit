@@ -75,6 +75,19 @@ The point of the essay made concrete: 'data role' means very different stacks de
 
 > Cross-source caveat: 2023 counts presence in a controlled skill list; 2026 counts presence in free-text descriptions. The two base rates are not directly comparable, so treat the jump as **directional**, not a precise delta.
 
+## Entry-level exposure: a check that did NOT pan out in postings
+
+Is the procedural, automatable stack concentrated in entry-level roles? Job postings are a poor instrument for this: they list skills for all levels, so 'Senior' postings carry at least as many procedural skills. Below, procedural-skill prevalence is flat-to-*higher* for senior titles and GenAI is ~0% across tiers in 2023. So this layer does **not** prove 'entry-level is hit hardest.' That claim rests on external payroll research (Stanford Digital Economy Lab, 'Canaries in the Coal Mine,' 2025: ~13% relative employment decline for ages 22–25 in the most AI-exposed occupations) plus the task-automation logic — not on this table.
+
+| role           | tier       |   postings |   procedural_skill_pct |   genai_pct |
+|:---------------|:-----------|-----------:|-----------------------:|------------:|
+| Data Analyst   | non-senior |     196075 |                   69.6 |       0.006 |
+| Data Analyst   | senior     |      29216 |                   75.4 |       0.007 |
+| Data Scientist | non-senior |     172286 |                   55.1 |       0.305 |
+| Data Scientist | senior     |      36957 |                   58   |       0.655 |
+| Data Engineer  | non-senior |     186241 |                   65.7 |       0.017 |
+| Data Engineer  | senior     |      44563 |                   68.3 |       0.025 |
+
 ## Top skill co-occurrence pairs, 2023
 
 | skill_a   | skill_b   |   co_postings |

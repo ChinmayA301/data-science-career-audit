@@ -14,7 +14,8 @@
 | GenAI orgs reviewing <=20% outputs | 27.0 | percent |
 | WEF respondents expecting AI/info tech business transformation | 86.0 | percent |
 | WEF projected net global job change by 2030 | 78.0 | million jobs |
+| Early-career (22-25) employment change in most AI-exposed jobs (Stanford DEL) | -13.0 | percent (relative) |
 
 ## Interpretation
 
-The numbers support a contradiction: data science remains a high-growth labor category, but the same AI adoption wave that increases demand for analytics also automates parts of the traditional analytics workflow. The safer career claim is not 'data science is dead'; it is 'generic tool-based data science is getting compressed.'
+The numbers support a contradiction: data science remains a high-growth labor category, but the same AI adoption wave that increases demand for analytics also automates parts of the traditional analytics workflow. The safer career claim is not 'data science is dead'; it is 'generic tool-based data science is getting compressed.' The pressure is not evenly distributed: external payroll research (Stanford Digital Economy Lab, 'Canaries in the Coal Mine,' 2025) finds early-career workers (ages 22-25) in the most AI-exposed occupations down about 13% in relative employment, while their more experienced peers stay flat or grow. The entry rung is the most exposed part of the bundle.

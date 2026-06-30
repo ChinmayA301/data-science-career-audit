@@ -194,6 +194,33 @@ def cooccurrence_2023(df: pd.DataFrame, top_n=15) -> pd.DataFrame:
     return pd.DataFrame(rows, columns=["skill_a", "skill_b", "co_postings"])
 
 
+def seniority_split_2023(df: pd.DataFrame) -> pd.DataFrame:
+    """Procedural-skill and GenAI prevalence for non-senior vs senior data roles.
+
+    This is a deliberate honesty check on the 'entry-level is hit hardest' claim.
+    It does NOT confirm it: postings list skills for all levels, so 'Senior'
+    postings carry at least as many procedural skills. The entry-level claim
+    rests on external payroll research, not on this table.
+    """
+    proc = r"\bsql\b|\bexcel\b|tableau|power\s?bi|looker|dashboard"
+    base_to_senior = {
+        "Data Analyst": "Senior Data Analyst",
+        "Data Scientist": "Senior Data Scientist",
+        "Data Engineer": "Senior Data Engineer",
+    }
+    rows = []
+    for base, senior in base_to_senior.items():
+        for title, tier in ((base, "non-senior"), (senior, "senior")):
+            g = df[df["job_title_short"].eq(title)]
+            rows.append([
+                base, tier, len(g),
+                _pct(g["blob"].str.contains(proc, regex=True)),
+                round(100 * g["blob"].str.contains(GENAI_ANY).mean(), 3),
+            ])
+    return pd.DataFrame(
+        rows, columns=["role", "tier", "postings", "procedural_skill_pct", "genai_pct"])
+
+
 # --------------------------------------------------------------------------- #
 # Plots                                                                       #
 # --------------------------------------------------------------------------- #
@@ -247,6 +274,9 @@ def main():
     cooc = cooccurrence_2023(lb)
     cooc.to_csv(OUT / "skill_cooccurrence_2023.csv", index=False)
 
+    seniority = seniority_split_2023(lb)
+    seniority.to_csv(OUT / "seniority_skill_split_2023.csv", index=False)
+
     # ---- 2026 snapshot (small n) ----
     freq26 = skill_freq(ng, SKILLS, drop=("r",))  # 'r' regex unreliable in prose
     freq26.to_csv(OUT / "skill_frequency_2026.csv", index=False)
@@ -284,7 +314,18 @@ def main():
         "\n> Cross-source caveat: 2023 counts presence in a controlled skill list; "
         "2026 counts presence in free-text descriptions. The two base rates are not "
         "directly comparable, so treat the jump as **directional**, not a precise delta.\n",
-        "## Top skill co-occurrence pairs, 2023\n",
+        "## Entry-level exposure: a check that did NOT pan out in postings\n",
+        "Is the procedural, automatable stack concentrated in entry-level roles? "
+        "Job postings are a poor instrument for this: they list skills for all "
+        "levels, so 'Senior' postings carry at least as many procedural skills. "
+        "Below, procedural-skill prevalence is flat-to-*higher* for senior titles "
+        "and GenAI is ~0% across tiers in 2023. So this layer does **not** prove "
+        "'entry-level is hit hardest.' That claim rests on external payroll research "
+        "(Stanford Digital Economy Lab, 'Canaries in the Coal Mine,' 2025: ~13% "
+        "relative employment decline for ages 22–25 in the most AI-exposed "
+        "occupations) plus the task-automation logic — not on this table.\n",
+        seniority.to_markdown(index=False),
+        "\n## Top skill co-occurrence pairs, 2023\n",
         cooc.to_markdown(index=False),
     ]
     (OUT / "nlp_summary.md").write_text("\n".join(lines), encoding="utf-8")
