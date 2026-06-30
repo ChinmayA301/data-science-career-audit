@@ -1,236 +1,250 @@
 ---
 title: "Data Science as a Career Was Made Up. The Work Was Not."
-date: 2026-06-08
+subtitle: "A source-backed descriptive audit of the data science labor market, AI pressure, and why the title matters less than the ability to turn ambiguity into decisions."
+date: 2026-06-29
 tags: [data-science, ai, labor-market, analytics, career]
 ---
 
 # Data Science as a Career Was Made Up. The Work Was Not.
 
-There is a funny way to make data scientists angry: tell them their career category is synthetic, then use a data science pipeline to show why.
+There is a funny irony in writing a data science blog arguing that data science, as a career label, is partly artificial.
 
-That is what this post is.
+So let's do the responsible thing.
 
-Not a funeral for data science. Not a LinkedIn panic post. Not another “AI will replace everyone” content smoothie.
+Let's audit data science using data science.
 
-This is a small technical audit of the data science career label using public labor-market and AI-adoption figures.
+Not emotionally.
+Not with LinkedIn panic.
+Not with "AI is coming for us" apocalypse theater.
 
-The argument is simple:
+Let's treat "data science" like a dataset. A labor-market construct. A bundle of skills packaged into a salary band. A career category that exploded because companies collected more data than they knew what to do with and needed someone to turn that data into business confidence.
 
-**Data science is not fake. But “data scientist” as a neat career category was always a bundle. AI is now unbundling that bundle.**
+One promise before we start, because it is the whole point: **this is a descriptive audit, not a causal proof.** I did not run a regression that "proves" data science is made up. I pulled real labor-market figures and real job-posting text, measured a few things, and found a contradiction worth sitting with. Where I am guessing, I will say so. Where I have receipts, I will show them.
 
-## The numbers from the audit
+## The receipts (what this audit actually measured)
 
-The companion script uses public source-backed figures from BLS, Stanford HAI, McKinsey, and the World Economic Forum.
+Two layers, both reproducible from the [companion repo](https://github.com/ChinmayA301/data-science-career-audit).
 
-The script outputs:
+**Layer 1 — the macro contradiction** (BLS, Stanford HAI, McKinsey, WEF):
 
-| Result | Value | Unit |
-|---|---:|---|
-| Data scientist jobs, 2024 | 245,900 | jobs |
-| Projected data scientist jobs, 2034 | 329,506 | jobs |
-| Projected jobs added, 2024-2034 | 83,606 | jobs |
-| DS projected growth vs all occupations | 10.97 | x |
-| Data scientist median pay, 2024 | 112,590 | USD/year |
-| AI adoption absolute change, 2023-2024 | 23 | percentage points |
-| AI adoption relative change, 2023-2024 | 41.8 | percent |
-| GenAI investment as share of US private AI investment | 31.1 | percent |
-| GenAI orgs reviewing all outputs | 27 | percent |
-| GenAI orgs reviewing <=20% outputs | 27 | percent |
-| WEF respondents expecting AI/info tech business transformation | 86 | percent |
-| WEF projected net global job change by 2030 | 78 | million jobs |
+| Result | Value |
+|---|---:|
+| US data scientist jobs, 2024 (BLS) | 245,900 |
+| Projected growth 2024–2034 (BLS) | 34% |
+| Implied data scientist jobs by 2034 | ~329,506 |
+| Growth vs. all occupations (3.1%) | ~10.97x |
+| Median pay, 2024 (BLS) | $112,590 |
+| Org AI adoption, 2023 → 2024 (Stanford HAI) | 55% → 78% |
+| GenAI share of US private AI investment (HAI) | 31.1% |
+| Orgs reviewing *all* GenAI output before use (McKinsey) | 27% |
+| Employers expecting AI to transform their business by 2030 (WEF) | 86% |
 
-So the evidence does **not** say data science is dead.
+**Layer 2 — the job-posting text** (two real public datasets):
 
-Actually, the BLS projection says the opposite: data scientist employment is projected to grow much faster than the overall labor market.
+- **2023 base:** `lukebarousse/data_jobs` — **728,481** data-role postings (full calendar year, clean monthly dates).
+- **2026 snapshot:** `NextGig-Rocks/global-job-postings-multi-ats` — ~113k global postings, of which **~888** are data roles, captured around June 2026.
 
-But that is exactly what makes the situation interesting.
+That is the entire evidentiary basis. It is enough to make one honest, uncomfortable point — and not enough to make the grander ones, which I will flag as I go.
 
-The career is growing while the workflow is being automated.
+## The harsh version
 
-That contradiction is the whole story.
+Data science was not discovered like medicine, farming, law, architecture, or engineering.
 
-## Data science grew because companies had data indigestion
+No civilization reached a stage where someone stood up and said: "We cannot continue human development until we hire a Data Scientist II."
 
-No society reached a natural stage of human development where it required a person called a Data Scientist II.
+The work existed before the title. Statistics existed. Research existed. Operations analysis existed. Forecasting existed. Epidemiology existed. Econometrics existed. Signal processing existed. Computer vision existed. NLP existed. Business intelligence existed. Dashboarding existed. Decision science existed.
 
-The work existed before the title.
+Then companies generated oceans of digital exhaust and got scared of their own databases.
 
-Statistics existed. Research existed. Forecasting existed. econometrics existed. Computer vision existed. NLP existed. BI existed. Operations research existed.
+So the modern data scientist arrived. Part analyst. Part statistician. Part software engineer. Part dashboard therapist. Part PowerPoint priest. Part "please make the numbers tell leadership we are not guessing."
 
-Then companies started collecting everything.
+That does not mean the role is useless. It means the role is **synthetic**. And synthetic roles are fragile when the bundle gets unbundled.
 
-Clicks. Claims. tickets. transactions. location traces. product events. support chats. customer records. marketing touchpoints. warehouse movements. app logs. spreadsheets that should have been illegal under basic workplace decency.
+## 1. Why did data science grow?
 
-And once companies had all this data, they realized something uncomfortable:
+The clean academic version wants to write something like:
 
-Having data is not the same as knowing what is happening.
-
-That is where data science entered the room.
-
-The pitch was basically:
-
-Give us the messy numbers. We will make them dance.
-
-Sometimes that produced real value.
-
-Sometimes it produced dashboards with expensive fonts and no decision impact.
-
-## A regression model for the boom
-
-If I had to write the career boom as a toy model:
-
-```text
-Data Scientist Demand =
-    β0
-  + β1(Data volume)
-  + β2(Cloud maturity)
-  + β3(Executive uncertainty)
-  + β4(ML hype)
-  + β5(Dashboard culture)
-  + β6(Optimization pressure)
-  + β7(Regulatory measurement burden)
-  + ε
+```
+demand_for_data_scientists ~
+    data_volume + cloud_adoption + exec_uncertainty
+  + ml_hype + dashboard_culture + vc_optimization + regulatory_pressure + e
 ```
 
-The important variable is not just data volume.
+I want to be blunt about something here, because it is exactly the kind of move this blog is criticizing: **that equation is a metaphor, not a model.** I did not estimate it. I do not have a clean panel of these predictors across firms and years, so writing coefficients would be the precise sin — faking statistical authority — that the rest of this post is about. Treat it as a hypothesis sketch, nothing more.
 
-It is uncertainty.
+The messy human version, which I *can* defend: companies collected everything, understood very little, and paid people to make uncertainty look structured. The title was new. The need was old: reduce uncertainty.
 
-Companies hire data scientists when they have enough information to feel responsible, but not enough interpretation to feel confident.
+## 2. The career is a bundle, not a discipline — and now I can show it
 
-That is the gap.
+The draft of this essay confidently estimated a data scientist's work as "20% statistics, 20% programming, 15% data cleaning…". Those numbers were vibes. Here are real ones.
 
-Not magic.
+Across **728,481** data-role postings in 2023, the titles are nearly interchangeable in volume but not in content:
 
-Interpretation.
+| Title | Postings (2023) |
+|---|---:|
+| Data Analyst | 196,075 |
+| Data Engineer | 186,241 |
+| Data Scientist | 172,286 |
+| Business Analyst | 49,063 |
+| Senior Data Engineer | 44,563 |
+| Senior Data Scientist | 36,957 |
+| Senior Data Analyst | 29,216 |
+| Machine Learning Engineer | 14,080 |
 
-## The job title is a bundle
+Three near-equal "data" titles, each doing meaningfully different work. The shared core is small: **SQL (51%) and Python (50%)** are the only skills that show up in roughly half of all data postings, and their co-occurrence (~247k postings) is the single most common skill pair in the data. Everything else fans out by title:
 
-A data scientist is usually some combination of:
+| Skill (% of postings) | Analyst | Scientist | Engineer | ML Engineer |
+|---|---:|---:|---:|---:|
+| Python | 28% | 67% | 59% | 69% |
+| SQL | 47% | 47% | 62% | 25% |
+| R | 15% | 35% | 7% | 11% |
+| Excel | 34% | 10% | 4% | 4% |
+| Tableau / Power BI / dashboards | 55% | 27% | 20% | 7% |
+| Spark | 3% | 15% | 30% | 19% |
+| AWS | 5% | 16% | 35% | 27% |
+| Airflow | 1% | 3% | 15% | 8% |
+| Deep learning | 1% | 14% | 2% | 37% |
+| Docker / Kubernetes | 1% | 6% | 12% | 23% |
 
-- statistician
-- analyst
-- programmer
-- dashboard builder
-- ML modeler
-- business translator
-- researcher
-- data janitor
-- meeting survivor
+Same banner. Different species. The "Analyst" is a spreadsheet-and-dashboard role. The "Scientist" is a Python-and-R modeling role. The "Engineer" is a cloud-pipelines role. The "ML Engineer" is a deep-learning-and-containers role. This is not one profession. It is a marketplace category — and now we have the frequencies to say so without hand-waving.
 
-That bundle was valuable because companies needed one person who could move between raw data, analysis, modeling, and explanation.
+## 3. What actually caused the boom?
 
-But bundled roles become vulnerable when tools unbundle the work.
+The naive claim — "data science grew because data became important" — is directionally true and analytically lazy. The honest candidate drivers:
 
-AI can already help with:
+1. **Data exhaust became cheap to collect.** Apps, SaaS, payments, logistics, IoT — companies could suddenly track everything and pretended that tracking meant understanding.
+2. **Storage and compute got cheap.** The bottleneck moved from "can we store this?" to "can anyone explain this?"
+3. **ML became commercially legible.** Recommendations, fraud, ranking, churn — the executive brain heard "prediction = profit" and wanted a model, even when it needed a cleaned table and a less chaotic process.
+4. **Dashboard culture became corporate religion.** A dashboard looks like control. Bad metric in, decorative nonsense out — but demand for people who turn raw data into legible rectangles exploded anyway.
+5. **Decisions wanted to look scientific.** A model can improve a decision. A model can also launder assumptions. The real job was never "build the model." It was "find out whether the model should exist."
 
-- SQL generation
-- boilerplate cleaning
-- code writing
-- exploratory summaries
-- dashboard drafting
-- standard model scaffolding
-- documentation
-- data profiling
-- report generation
+I can't assign weights to these from the data I have, so I won't. But notice all five are about organizational insecurity as much as scientific need.
 
-So the weak version of data science gets compressed.
+## 4. A regression I am deliberately *not* running
 
-The strong version becomes more important.
+A natural next move is to model data-scientist hiring intensity across industries on predictors like data volume, cloud maturity, AI investment, regulatory burden, and profit margin, then nod at a table of "expected signs."
 
-## The AI contradiction
+I'm leaving that as a **design, not a result.** With the public data in this repo there is no honest panel to estimate it on, and a regression with five aggregate anchors would be exactly the expensive-looking nonsense this essay is about. The repo's `outputs/` contains descriptive measurements only. When someone wires in occupation-level employment panels, salary trajectories, AI-exposure scores, and industry controls, *then* the regression earns its place. Until then, the honest verb is "measured," not "modeled."
 
-Data science was sold on four promises:
+## 5. What type of data scientist are you actually hiring?
 
-1. automate work
-2. predict outcomes
-3. optimize systems
-4. present information clearly
+The industry uses one title for at least five jobs. Section 2's table is the empirical version of these archetypes:
 
-Then GenAI arrived and said:
+- **The Analyst-Scientist** — SQL, dashboards, experimentation, stakeholder communication. Output: better decisions. (The 55%-dashboards column.)
+- **The ML Builder** — Python, deep learning, containers, deployment. Output: predictive systems. Should usually be called an ML engineer. (The 37%-deep-learning column.)
+- **The Research Data Scientist** — causal inference, experimental design, uncertainty analysis. Output: knowledge. Gets confused with someone who makes dashboards.
+- **The Business Translator** — metrics, KPI design, stakeholder interviews. Output: clarity. Underrated because the output isn't a fancy model.
+- **The AI-Native Data Operator** — LLMs, retrieval, evaluation, human-in-the-loop. Output: semi-automated intelligence workflows. This is where the field is going, and Section 9 is where it shows up in the data.
 
-I do that too.
+## 6. The language of the job description gives away the truth
 
-That is why the panic is weird.
+The original plan for this section was "if we scraped 100,000 job descriptions, we could run topic modeling." I scraped nothing — I used two real public corpora instead, and the keyword structure is exactly the bundle:
 
-A career category built partly around automation cannot act morally betrayed when automation reaches its own workflow.
+- **The classic stack** — SQL (51%), Python (50%), Excel/Tableau/Power BI/dashboards (35%). *Translation: "clean data and explain numbers."*
+- **The engineering leak** — Spark (15%), AWS (18%), Azure (17%), Airflow (6%), heavily concentrated in "Data Engineer" postings. *Translation: "we wrote data scientist but HR meant data engineer."*
+- **The ML stack** — deep learning (5% overall, 37% in ML Engineer roles). *Translation: "we want models, and maybe have usable data."*
+- **The AI rebrand** — GenAI / LLM / RAG / agents. Almost invisible in 2023, loud by 2026. That's the next section.
 
-The question is not whether AI replaces data scientists.
+You don't need a topic model to see it: "data science" is not one job family. It is a language cluster around uncertainty reduction.
 
-That is too vague to be useful.
+## 7. Dashboards are corporate X-rays
 
-The better question is:
+Computer vision turns pixels into labels. Dashboards turn operations into charts and executive comfort. Both can be useful. Both can hallucinate confidence.
 
-**Which parts of data science were procedural, and which parts were judgment?**
+A medical image model is dangerous if it detects patterns without clinical context. A dashboard is dangerous if it detects trends without operational context. And the entry-level data pathway has a real weakness here: many people enter knowing models before they know domains. They can optimize AUC and generate SHAP plots, but may not know whether the target variable is valid, whether the data-generating process changed, whether the metric is a real proxy, or whether the stakeholder is asking the wrong question.
 
-Procedural work is exposed.
+The domain gives the data meaning. Without domain understanding, data science becomes expensive pattern decoration.
 
-Judgment work has leverage.
+## 8. What parts of data science are most likely to be automated?
 
-## What survives
+This table is a **judgment call, not a measurement** — I'm rating tasks, not citing a study. But the ratings line up with where the GenAI tooling has visibly landed:
 
-The future data scientist is less “person who knows the library” and more “person who knows what question should be asked.”
+| Task | Automation pressure | Why |
+|---|---|---|
+| Basic SQL queries | High | LLMs already handle most common queries |
+| Boilerplate data cleaning | High | Pattern-based transforms are automatable |
+| Simple dashboards | High | BI tools + AI copilots are converging |
+| Exploratory summaries | High | AI profiles datasets quickly |
+| Standard model fitting | Medium-High | AutoML + AI coding tools compress effort |
+| Feature engineering | Medium | Still needs domain judgment |
+| Experiment design | Medium-Low | Causal and operational judgment |
+| Stakeholder problem framing | Low | Humans stay messy, political, contradictory |
+| Domain interpretation | Low | Context stays hard |
+| Decision accountability | Low | Someone still owns the consequences |
 
-The durable skills are:
+The central point: AI does not kill data science. It kills the parts that were already procedural. The parts that survive are the parts that were never just technical.
 
-- problem framing
-- causal reasoning
-- domain understanding
-- measurement design
-- validation
-- stakeholder translation
-- deciding what should not be automated
-- knowing when the data is lying
-- knowing when the dashboard is corporate wallpaper
+## 9. The GenAI shock, in the postings themselves
 
-This is why subject matter expertise matters.
+Here is the cleanest real finding in the whole audit.
 
-A healthcare researcher does not treat HbA1c as just a column.
+In 2023, across 728k data-role postings, GenAI / LLM language — "generative AI," "LLM," "GPT," "RAG," "LangChain," "prompt engineering," "AI agents," "vector database" — appears in about **0.1%** of postings. It is essentially absent. But even inside 2023 it is moving: the monthly mention rate roughly doubles from **0.10% in the first half** to **0.17% in the second half** of the year. Small, but the slope is up. (See `outputs/genai_keyword_monthly_2023.png`.)
 
-A geospatial analyst does not treat a ZIP code as just a join key.
+By the ~June 2026 snapshot, GenAI / LLM language appears in roughly **27%** of data-role postings.
 
-An economist does not treat unemployment as just a time series.
+**Read that carefully, because the honest version is less explosive than the headline.** The 2023 number comes from a controlled skill vocabulary; the 2026 number comes from free-text descriptions in a *different* dataset. The two base rates are not directly comparable, so the jump is **directional, not a precise 270x.** What I'll stand behind: GenAI language was a rounding error in data postings two years ago, was already accelerating within 2023, and is now a routine line item. The direction is not in doubt. The exact multiplier is.
 
-The domain gives the data meaning.
+This is the awkward part for the field. Data science was sold on automation, prediction, optimization, and clean presentation. Generative AI shows up and says "I do those too." A career built around automation cannot be morally surprised when automation reaches the career. That doesn't make every data scientist replaceable. It makes the **generic** version replaceable — and adds a new column to the job description for everyone else.
 
-Without that, data science becomes pattern decoration.
+## 10. What actually matters now
 
-## The honest conclusion
+If you trained a model to predict career resilience for data scientists, the top features would not be "knows pandas." They'd look more like: problem framing, domain understanding, communication, causal reasoning, data-engineering literacy, AI-workflow literacy, statistical judgment, product sense — with "specific library memorization" near the bottom.
 
-Data science is not dead.
+I can't put importances on that — I didn't fit it, and I'm not going to pretend I did. But it follows from the rest of the audit. Tools are the easiest layer to automate, and the GenAI column in Section 9 is the tooling layer arriving. The leverage moves upward: from writing code to designing systems, from building models to validating decisions, from making dashboards to defining what should be measured.
 
-The numbers do not support that.
+## 11. The career boom as a causal story (sketch, not estimate)
 
-The BLS projection is still strong. AI adoption is rising. AI governance and evaluation needs are rising. Organizations still need people who can turn messy information into decisions.
+Roughly:
 
-But the generic version of the role is getting squeezed.
+```
+digital transformation -> more data -> more ambiguity -> demand for analytics
+-> data science hiring -> bootcamps/degrees/pipelines -> more entry-level supply
+-> skill commoditization
+AI tooling -> automation of repeatable analytics tasks -> pressure on generic roles
+-> shift toward domain / problem / system roles
+```
 
-If your value is:
+The key confounder is **hype**, which inflated both hiring and education supply at once. Companies wanted data scientists because the market said they were valuable; students trained because companies paid; schools and bootcamps sold the credential because the salary charts looked good. Then AI compressed the technical middle.
 
-“I can clean data, build a model, and make a dashboard”
+This is a causal *diagram*, not a causal *claim*. I'm drawing arrows I find plausible, not arrows I tested. The colder question the market is now asking is real either way: what can you do that a model, a BI copilot, or an AutoML pipeline can't do cheaply?
 
-that is not enough.
+## 12. The dashboard problem
 
-If your value is:
+A lot of data science work ends in a dashboard. Dashboards are useful. Dashboards are also where nuance goes to die wearing a nice color palette.
 
-“I can find the real problem, build the evidence system, validate the output, and explain the decision that should change”
+The dashboard says conversion is down. But why? Bad targeting? Seasonality? Pricing? A tracking bug? A metric definition that should have been killed six months ago? A dashboard can show movement. It cannot automatically explain meaning. That gap was where data scientists were supposed to matter — not as chart makers, as sense-makers. If the role collapses into chart production, AI will eat it. Honestly, it should.
 
-you still have leverage.
+## 13. What this means for new data scientists
 
-The title was made up.
+The old path — learn Python, SQL, stats, ML; make projects; pray to the ATS gods — is not dead, but it is overcrowded, and Section 2 shows why: those are the commoditized, shared-core skills.
 
-The value was not.
+The better path: find a real problem, understand the domain, build a simple evidence system, and show the decision that changes because of your work. It can be local and unglamorous — your job-search pipeline, transit delays, rental affordability, 311 complaints, grocery inflation on your block, an AI-evaluation harness for a real workflow. Find one thing that is stupid, inefficient, or opaque. Make it measurable. Make it useful. That is data science. Not the title. The act.
 
-## Repo
+## 14. Data science was always a proxy
 
-The companion script and outputs are here:
+Data science as a career was a proxy for curiosity, quantitative reasoning, structured thinking, technical execution, business translation, uncertainty reduction, and decision support. The title inflated because the market needed a container. AI is breaking the container. Good — the container was never the point. The ability to create value from ambiguity is not dying. The costume is changing.
 
-`https://github.com/ChinmayA301/data-science-career-audit`
+## 15. Closing
 
-## Sources
+Data science is not fake. But the idea that it is a clean, permanent, protected career category is fake. It was a boom-time label for a bundle of valuable skills, and AI is unbundling that bundle. The weak version — clean data, fit a standard model, ship a dashboard, summarize — gets compressed. The strong version — what problem is real, what evidence matters, what decision changes, and what should *not* be automated — gets more important.
 
-- BLS Occupational Outlook Handbook — Data Scientists
-- BLS Monthly Labor Review — 2024–2034 employment projections overview
-- Stanford HAI AI Index 2025
-- McKinsey State of AI 2025
-- World Economic Forum Future of Jobs Report 2025
+The title was always a market bundle. The value was never the title.
+
+---
+
+## Methods and honest limitations
+
+- **Type of study:** descriptive, source-backed audit. No model is fit. No causal effect is estimated. The regression and DAG in Sections 4 and 11 are explicitly labeled as conceptual.
+- **Macro figures:** BLS Occupational Outlook Handbook (Data Scientists), BLS employment-projections overview, Stanford HAI AI Index 2025, McKinsey State of AI 2025, WEF Future of Jobs 2025. Computed in `src/run_audit.py`.
+- **Job postings:** `lukebarousse/data_jobs` (≈785k postings, 2023, controlled skill vocabulary) and `NextGig-Rocks/global-job-postings-multi-ats` (≈113k global postings, ~June 2026, free text). Measured in `src/job_posting_nlp.py`.
+- **The big caveat:** the 2023 → 2026 GenAI comparison crosses two sources with different extraction methods (controlled skill list vs. free-text descriptions) and very different sample sizes (728k vs. ~888 data roles). It is directional only. The statistically robust GenAI result is the *within-2023* monthly trend.
+- **Reproduce it:**
+
+```bash
+pip install -r requirements.txt
+python src/run_audit.py            # macro audit
+python src/fetch_data.py           # download raw postings (~260 MB)
+python src/job_posting_nlp.py      # job-posting NLP
+```
+
+Code, data pointers, and all outputs: **https://github.com/ChinmayA301/data-science-career-audit**
