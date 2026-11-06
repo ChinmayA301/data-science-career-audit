@@ -68,7 +68,8 @@ statistically robust result is the *within-2023* monthly trend.
 | Data scientist median pay, 2024 | 112,590 | USD/year |
 | AI adoption absolute change, 2023-2024 | 23 | percentage points |
 | AI adoption relative change, 2023-2024 | 41.8 | percent |
-| GenAI investment as share of US private AI investment | 31.1 | percent |
+| Global private GenAI investment, 2024 (HAI) | 33.9 | billion USD |
+| US private AI investment, all AI, 2024 (HAI) | 109.1 | billion USD |
 | GenAI orgs reviewing all outputs | 27 | percent |
 | GenAI orgs reviewing <=20% outputs | 27 | percent |
 | WEF respondents expecting AI/info tech business transformation | 86 | percent |
@@ -85,10 +86,13 @@ statistically robust result is the *within-2023* monthly trend.
   postings lean deep learning (37%) and Docker/K8s (23%).
 - **SQL (51%) and Python (50%) are the shared core**; their co-occurrence
   (~247k postings) is the single most common skill pair.
-- **GenAI/LLM language is entering data postings.** It was ~0.1% of 2023 data
-  postings (controlled skill lists) and already roughly doubled within 2023
-  (Jan–Jun 0.10% → Jul–Dec 0.17%). In the ~June 2026 snapshot it appears in
-  **~27%** of data-role postings (free text, n≈900 — directional, see caveat).
+- **GenAI/LLM language is entering data postings.** Within 2023, on one
+  instrument, the monthly rate rose about 1.7x (Jan–Jun 0.10% → Jul–Dec 0.17%).
+  The 2023 full-year level (~0.1%) is a floor set by the controlled skill
+  vocabulary, which also records "nlp" at 0%, so it is not evidence of absence.
+  In the ~June 2026 snapshot GenAI language appears in **~27%** of data-role
+  postings (free text, n≈900). The 2023 and 2026 figures come from different
+  instruments and are not a measured change.
 - **Entry-level exposure — an honest null.** Job postings can't show that the
   automatable stack sits at the entry level: procedural-skill prevalence is
   flat-to-*higher* in "Senior" postings and GenAI is ~0% across tiers in 2023.
@@ -119,3 +123,7 @@ only. For real causal work, extend with occupation-level historical employment
 panels, salary trajectories, AI-exposure scores, and industry controls — and
 only then add regression. Until the data supports it, no regression is run here
 on purpose.
+
+## Corrections
+
+- **Nov 2026:** removed "GenAI investment as share of US private AI investment (31.1%)". It divided global GenAI investment by US AI investment, so the numerator and denominator covered different geographies. Added a vocabulary-coverage caveat to the 2023 GenAI measurement.

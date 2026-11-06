@@ -9,7 +9,8 @@
 | Data scientist median pay, 2024 | 112590.0 | USD/year |
 | AI adoption absolute change, 2023-2024 | 23.0 | percentage points |
 | AI adoption relative change, 2023-2024 | 41.8 | percent |
-| GenAI investment as share of US private AI investment | 31.1 | percent |
+| Global private GenAI investment, 2024 (HAI) | 33.9 | billion USD |
+| US private AI investment, all AI, 2024 (HAI) | 109.1 | billion USD |
 | GenAI orgs reviewing all outputs | 27.0 | percent |
 | GenAI orgs reviewing <=20% outputs | 27.0 | percent |
 | WEF respondents expecting AI/info tech business transformation | 86.0 | percent |
