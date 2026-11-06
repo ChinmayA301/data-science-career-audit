@@ -314,6 +314,12 @@ def main():
         "\n> Cross-source caveat: 2023 counts presence in a controlled skill list; "
         "2026 counts presence in free-text descriptions. The two base rates are not "
         "directly comparable, so treat the jump as **directional**, not a precise delta.\n",
+        "\n> Vocabulary-coverage caveat: the 2023 rate is measured against the dataset's "
+        "controlled `job_skills` vocabulary, which records \"nlp\" at 0.0% and \"machine learning\" "
+        "at 2.7% across every role. That vocabulary largely cannot express this kind of language, "
+        "so the 2023 full-year figure is a floor set by the instrument, not evidence that GenAI "
+        "language was absent. The within-2023 monthly rise is a same-instrument comparison and is "
+        "the more reliable signal.\n",
         "## Entry-level exposure: a check that did NOT pan out in postings\n",
         "Is the procedural, automatable stack concentrated in entry-level roles? "
         "Job postings are a poor instrument for this: they list skills for all "

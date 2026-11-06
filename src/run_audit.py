@@ -68,7 +68,9 @@ def main():
     relative_growth_multiplier = ds_growth / all_growth
     ai_adoption_pp_change = ai_2024 - ai_2023
     ai_adoption_relative_change = ((ai_2024 / ai_2023) - 1) * 100
-    genai_share_of_us_ai_private_investment = (genai_investment / us_ai_investment) * 100
+    # NOTE: an earlier version divided GLOBAL GenAI investment by US AI
+    # investment (31.1%). Numerator and denominator cover different
+    # geographies, so that ratio is not meaningful and has been removed.
     net_global_jobs_wef = jobs_created - jobs_displaced
 
     summary = pd.DataFrame([
@@ -79,7 +81,8 @@ def main():
         ["Data scientist median pay, 2024", median_pay, "USD/year"],
         ["AI adoption absolute change, 2023-2024", ai_adoption_pp_change, "percentage points"],
         ["AI adoption relative change, 2023-2024", round(ai_adoption_relative_change, 1), "percent"],
-        ["GenAI investment as share of US private AI investment", round(genai_share_of_us_ai_private_investment, 1), "percent"],
+        ["Global private GenAI investment, 2024 (HAI)", genai_investment, "billion USD"],
+        ["US private AI investment, all AI, 2024 (HAI)", us_ai_investment, "billion USD"],
         ["GenAI orgs reviewing all outputs", review_all, "percent"],
         ["GenAI orgs reviewing <=20% outputs", review_low, "percent"],
         ["WEF respondents expecting AI/info tech business transformation", wef_transform, "percent"],
